@@ -20,12 +20,21 @@
     
     
 }
+static NextViewController * extracted() {
+    return [NextViewController new];
+}
+
+
+- (NextViewController *)extracted {
+    return extracted();
+}
+
 - (IBAction)touchUpInside:(id)sender {
-    NextViewController *vc = [NextViewController new];
+    NextViewController *nextVC = [self extracted];
     UIBarButtonItem *back = [[UIBarButtonItem alloc]init];
     back.title = @"";
     self.navigationItem.backBarButtonItem = back;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:nextVC animated:YES];
 }
 
 
